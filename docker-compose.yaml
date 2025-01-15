@@ -47,9 +47,11 @@ services:
       - "8888:8888"
     volumes:
       - ./jupyter/notebooks:/home/jovyan/work
+    environment:
+      - JUPYTER_TOKEN=TestTest123
     env_file:
       - .env
-    command: start-notebook.sh
+    command: start-notebook.sh --NotebookApp.token=${JUPYTER_TOKEN}
 
 
 networks:
